@@ -1,0 +1,47 @@
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("My Application");
+
+        JButton button = new JButton("Click Me");
+
+        // Button click event
+        button.addActionListener(e -> {
+            JOptionPane.showMessageDialog(
+                frame,
+                "Welcome! We are happy to see you.",
+                "Welcome",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        });
+
+        frame.add(button);
+
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+
+        // Window closing event
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+                JOptionPane.showMessageDialog(
+                    frame,
+                    "Goodbye! See you again.",
+                    "Goodbye",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+
+                System.exit(0);
+            }
+        });
+
+        frame.setVisible(true);
+    }
+}
